@@ -52,7 +52,7 @@ YO_CLUSTER = OFF
 # --- Intel/AMD系 (x86/x64 Platform)
 #TARGET_CPU = AVX512VNNI
 #TARGET_CPU = AVX512
-TARGET_CPU = AVX2
+#TARGET_CPU = AVX2
 #TARGET_CPU = SSE42
 #TARGET_CPU = SSE41
 #TARGET_CPU = SSSE3
@@ -63,7 +63,7 @@ TARGET_CPU = AVX2
 #TARGET_CPU = ZEN2
 #TARGET_CPU = ZEN3
 # -- ARMとか
-#TARGET_CPU = OTHER
+TARGET_CPU = OTHER
 #TARGET_CPU = GRAVITON2
 #TARGET_CPU = WASM
 
@@ -144,7 +144,7 @@ endif
 # clang用にCPPFLAGSなどを変更
 ifneq (,$(findstring clang++,$(COMPILER)))
 	# stdlib
-	# CPPFLAGS += -stdlib=libstdc++
+	CPPFLAGS += -stdlib=libc++
 
 	# C++17のfilesystem
 	# LDFLAGS += -lstdc++fs
